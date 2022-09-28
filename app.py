@@ -25,10 +25,12 @@ def show_fast_recommend():
     name = str(formValues[0])
     number = int(formValues[1])
     if m.track_exist_fast(name):
-        names, artist_names, album_names = m.recommend_me_by_cluster(name, number)
+        names_id, artist_names_id, album_names_id, names, artist_names, album_names = m.recommend_me_by_cluster(name,
+                                                                                                                number)
         count_songs = len(names)
         return render_template('result.html', names=names, artist_names=artist_names, album_names=album_names,
-                               count_songs=count_songs)
+                               count_songs=count_songs, names_id=names_id, artist_names_id=artist_names_id,
+                               album_names_id=album_names_id)
     else:
         not_found = '{} not found in songs library.'.format(name)
         return render_template('result.html', not_found=not_found)
@@ -40,11 +42,12 @@ def show_accurate_recommend():
     name = str(formValues[0])
     number = int(formValues[1])
     if m.track_exist_accurate(name):
-        names, artist_names, album_names = m.recommend_me_by_content(name, number)
-        print(names)
+        names_id, artist_names_id, album_names_id, names, artist_names, album_names = m.recommend_me_by_content(name,
+                                                                                                                number)
         count_songs = len(names)
         return render_template('result.html', names=names, artist_names=artist_names, album_names=album_names,
-                               count_songs=count_songs)
+                               count_songs=count_songs, names_id=names_id, artist_names_id=artist_names_id,
+                               album_names_id=album_names_id)
     else:
         not_found = '{} not found in songs library.'.format(name)
         return render_template('result.html', not_found=not_found)

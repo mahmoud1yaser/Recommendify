@@ -121,9 +121,9 @@
             {% for i in range(count_songs) %}
 
                 <th scope="row">{{i+1}}</th>
-                <td>{{names[i]}}</td>
-                <td>{{artist_names[i]}}</td>
-                <td>{{album_names[i]}}</td>
+                <td><a href={{names_id[i]}}>{{names[i]}}</a></td>
+                <td><a href={{artist_names_id[i]}}>{{artist_names[i]}}</a></td>
+                <td><a href={{album_names_id[i]}}>{{album_names[i]}}</a></td>
               </tr>
             {% endfor %}
             {% else %}

@@ -22,13 +22,16 @@ def recommend_me_by_cluster(x1, n=5):
         c_df = df_cluster[df_cluster["track_identifier"] == x][["cluster", "popularity"]]
         c_df.sort_values("popularity", ascending=False, inplace=True)
         c_no = int(c_df["cluster"][0:1])
-        r_df = df_cluster[df_cluster["cluster"] == c_no][["track_name", "artist_name", "album_name", "popularity"]]
+        r_df = df_cluster[df_cluster["cluster"] == c_no][["track_uri", "artist_uri", "album_uri", "track_name", "artist_name", "album_name", "popularity"]]
         r_df.sort_values("popularity", ascending=False, inplace=True)
-        final_df = r_df[["track_name", "artist_name", "album_name"]][1:n + 1]
-        names = list(final_df.iloc[:, 0])
-        artist_name = list(final_df.iloc[:, 1])
-        album_name = list(final_df.iloc[:, 2])
-        return names, artist_name, album_name
+        final_df = r_df[["track_uri", "artist_uri", "album_uri", "track_name", "artist_name", "album_name"]][1:n + 1]
+        names_id = list(final_df.iloc[:, 0])
+        artist_name_id = list(final_df.iloc[:, 1])
+        album_name_id = list(final_df.iloc[:, 2])
+        names = list(final_df.iloc[:, 3])
+        artist_name = list(final_df.iloc[:, 4])
+        album_name = list(final_df.iloc[:, 5])
+        return names_id, artist_name_id, album_name_id, names, artist_name, album_name
     else:
         return "Our database has no track with this name"
 
@@ -98,11 +101,14 @@ def recommend_me_by_content(song_name, n=5):
         tracks.sort_values(by=['similarity', 'popularity'], ascending=[False, False], inplace=True)
         # Create DataFrame "recommended_songs" containing 5 songs that are most similar to the given song and return
         # this DataFrame
-        recommended_songs = tracks[['track_name', 'artist_name', 'album_name']][1:(1 + n)]
-        names = list(recommended_songs.iloc[:, 0])
-        artist_name = list(recommended_songs.iloc[:, 1])
-        album_name = list(recommended_songs.iloc[:, 2])
-        return names, artist_name, album_name
+        recommended_songs = tracks[["track_uri", "artist_uri", "album_uri", 'track_name', 'artist_name', 'album_name']][1:(1+n)]
+        names_id = list(recommended_songs.iloc[:, 0])
+        artist_name_id = list(recommended_songs.iloc[:, 1])
+        album_name_id = list(recommended_songs.iloc[:, 2])
+        names = list(recommended_songs.iloc[:, 3])
+        artist_name = list(recommended_songs.iloc[:, 4])
+        album_name = list(recommended_songs.iloc[:, 5])
+        return names_id, artist_name_id, album_name_id, names, artist_name, album_name
     except:
         # If given song is not found in song library then display message
         print('{} not found in songs library.'.format(song_name))
