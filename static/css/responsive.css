@@ -252,7 +252,7 @@ ul.loca  {justify-content: left;}
 
 .Gallery_text .titlepage {padding-top: 30px;}
 .heding h2 {font-size: 40px;}
-.header-top {min-height:inherit;}
+.header-top {min-height:inherit; }
 .carousel-control-next, .carousel-control-prev {bottom: -20%;
 }
    .slider_section {
