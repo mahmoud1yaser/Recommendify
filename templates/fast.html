@@ -33,11 +33,7 @@
 <!-- body -->
 
 <body class="main-layout contineer_page">
-<!--  &lt;!&ndash; loader  &ndash;&gt;-->
-<!--  <div class="loader_bg">-->
-<!--    <div class="loader"><img src="../static/images/loading.gif" alt="#" /></div>-->
-<!--  </div>-->
-<!--  &lt;!&ndash; end loader &ndash;&gt;-->
+
   <!-- header -->
   <header>
     <!-- header inner -->
@@ -63,11 +59,7 @@
 
                       <li> <a href="{{url_for('recommend_fast')}}">Fast Recommender </a> </li>
                       <li> <a href="{{url_for('recommend_accurate')}}">Accurate Recommender</a> </li>
-                      <!-- <li> <a href="contact.html">Contact</a> </li>
-      
-                        <li > <a   href="#contact">login</a> </li>
-                      <li  > <a  class="last_manu" href="#"><img src="../static/images/search_icon.png" alt="#" /></a> </li> -->
-                      
+
                      </ul>
                    </nav>
                 
@@ -110,19 +102,17 @@
           <form class="contact_bg" method="POST" action="{{url_for('show_fast_recommend')}}">
             <div class="row">
               <div class="col-md-12">
-
-                <div class="col-md-12">
+                <div class="titlepage">
+                  <h2>Find Your Recommendations</h2>
+                </div>
                   <input class="contactus" placeholder="Song Name" type="text" name="song_name">
-                </div>
-                <div class="col-md-12">
-                  <input class="contactus" value="1" type="number" name="number_of_songs" min="1" max="500" required>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                  <input class="contactus" value="5" type="number" name="number_of_songs" min="1" max="500" required>
+
                   <button class="send">Find</button>
-                </div>
               </div>
             </div>
-            </form>  
+            </form>
 
 
         </div>

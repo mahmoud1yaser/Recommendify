@@ -58,11 +58,7 @@
                   
                       <li> <a href="{{url_for('recommend_fast')}}">Fast Recommender </a> </li>
                       <li> <a href="{{url_for('recommend_accurate')}}">Accurate Recommender</a> </li>
-                      <!-- <li> <a href="contact.html">Contact</a> </li>
-      
-                        <li > <a   href="#contact">login</a> </li>
-                      <li  > <a  class="last_manu" href="#"><img src="../static/images/search_icon.png" alt="#" /></a> </li> -->
-                      
+
                      </ul>
                    </nav>
                 
@@ -100,23 +96,18 @@
           <div class="titlepage">
             <h2>Find Similar Song</h2>
           </div>
-          <!-- <p>It is a *long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-          <a href="Javascript:void(0)">Read More</a> -->
+
           <form class="contact_bg" method="POST" action="{{url_for('show_accurate_recommend')}}">
             <div class="row">
               <div class="col-md-12">
                 <div class="titlepage">
                   <h2>Find Your Recommendations</h2>
                 </div>
-                <!-- <div class="col-md-12"> -->
                   <input class="contactus" placeholder="Song Name" type="text" name="song_name">
-                <!-- </div> -->
-                <!-- <div class="col-md-12"> -->
-                  <input class="contactus" value="1" type="number" name="number_of_songs" min="1" max="100" required>
-                <!-- </div> -->
-                <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> -->
+
+                  <input class="contactus" value="5" type="number" name="number_of_songs" min="1" max="500" required>
+
                   <button class="send">Find</button>
-                <!-- </div> -->
               </div>
             </div>
             </form>  

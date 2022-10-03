@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Import Pandas to use DataFrames
 
 
-df_cluster = pd.read_csv('cluster_recommend_dataset.csv')
+df_cluster = pd.read_csv('data/cluster_recommend_dataset.csv')
 
 
 def track_exist_fast(x):
@@ -36,7 +36,7 @@ def recommend_me_by_cluster(x1, n=5):
         return "Our database has no track with this name"
 
 
-df_content = pd.read_csv('content_recommend_dataset.csv')
+df_content = pd.read_csv('data/content_recommend_dataset.csv')
 # We selected the most popular 10000 songs only to make our algo work faster
 df_mini = df_content.sort_values("popularity", ascending=False)[:10000]
 
@@ -74,7 +74,7 @@ def recommend_me_by_content(song_name, n=5):
         # Initialise empty list to store similarity scores
         sim_scores = []
 
-        # For every song/track in song library, determine cosine similarity with given song
+        # For every song/track in tracks, determine cosine similarity with given song
         for index, row in tracks.iterrows():
             name = row['track_name']
 
@@ -94,7 +94,7 @@ def recommend_me_by_content(song_name, n=5):
             sim = (text_sim + num_sim) / 2
             sim_scores.append(sim)
 
-        # Add new column containing similarity scores to song_library DataFrame
+        # Add new column containing similarity scores to tracks DataFrame
         tracks['similarity'] = sim_scores
 
         # Sort DataFrame based on "similarity" column
