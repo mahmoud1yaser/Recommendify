@@ -11,9 +11,9 @@ Recommendation Systems are used essentially in Spotify! <br>
 
 
 ## App video Review
-<center>
-[Recommendify](https://drive.google.com/file/d/1kutCUfNSivR7NXNFNVcBIK0D1lhBnkAO/view?usp=sharing)
-</center>
+<a href = "https://drive.google.com/file/d/1kutCUfNSivR7NXNFNVcBIK0D1lhBnkAO/view?usp=sharing">
+Recommendify
+</a>
     
 <hr>
 
