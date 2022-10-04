@@ -11,7 +11,10 @@ Recommendation Systems are used essentially in Spotify! <br>
 
 
 ## App video Review
+<center>
 [Recommendify](https://drive.google.com/file/d/1kutCUfNSivR7NXNFNVcBIK0D1lhBnkAO/view?usp=sharing)
+</center>
+    
 <hr>
 
 ## Understanding the Dataset
@@ -93,6 +96,7 @@ positive_numerical_columns = numerical_columns[0:4]+numerical_columns[5:]
 df_scaled=pd.DataFrame(scaler.fit_transform(track[positive_numerical_columns]), columns = track[positive_numerical_columns].columns)
 ```
 <hr>
+
 ## EDA
 **Univariate Analysis:**
 - We extracted the artists popularity feature and got the **top 50 artists** and this algorithm worked very well:
@@ -129,7 +133,9 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 ```
 sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 ``` 
+
 <hr>
+
 ## Model Building
 
 #### Clustering
@@ -143,6 +149,7 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 - We only sliced the most 1000 popular tracks to make the loading speed reasonable
   - As it takes 20 minutes to iterate over all the 90k tracks
   - Very accurate algorithm, and it has a dataset of 5k songs
+
 <hr>
 
 ## Full project notebooks
@@ -153,6 +160,7 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 ## Recommendations
 - We can improve our content-based recommendation algorithm
 - We can recommend the songs relative to the song name, artist instead of the song name only to get more accurate result.
+
 <hr>
 
 ## Deployment
