@@ -146,7 +146,7 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 - **PCA** is used on reducing the most important features into other pca components that maintains the highest variability of the data.
 #### Content-Based Filtering
 - We used track features and created the track `metadata` feature which includes the the `artist + album + track` name and got the mean of the similarity (using cosaine similarity) due to track features and track metadata feature. and recommend to the user according to `similarity` and `popularity`.
-- We only sliced the most 1000 popular tracks to make the loading speed reasonable
+- We only sliced the most 5000 popular tracks to make the loading speed reasonable
   - As it takes 20 minutes to iterate over all the 90k tracks
   - Very accurate algorithm, and it has a dataset of 5k songs
 
