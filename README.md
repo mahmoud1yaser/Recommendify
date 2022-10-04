@@ -49,6 +49,19 @@ Recommendation Systems are used essentially in Spotify! <br>
     - **valence** (A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).)
     <hr>
 
+## Data Scraping
+We made data scraping using spotipy library and got over the data of 4000 playlists with their tracks:
+```
+p1, p2, p3, p4, p5 = all_uri[:20000], all_uri[2000:40000], all_uri[40000:60000], all_uri[60000:80000], all_uri[80000:]
+api_features = []
+
+for uri in tqdm(p1):
+    try:
+        api_features.append(sp.audio_features(uri)[0])
+    except:
+        pass
+```
+
 ## Preprocessing and Sentiment Analysis
 
 We got unique tracks and unique playlists in different dataframes and extracted additional features using `one hot encoding`:
@@ -116,34 +129,29 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
 
 #### Clustering
 - We divided the tracks into 41 cluster (as there are 41 existed track genres) and recommend to the user according to `cluster` and `popularity`.
+- Very fast algorithm, and it has a dataset of 90k songs
 ##### Choosing the features 
 - **Correlation** is used on reducing the tracks dataset features to the most important one.
 - **PCA** is used on reducing the most important features into other pca components that maintains the highest variability of the data.
 #### Content-Based Filtering
 - We used track features and created the track `metadata` feature which includes the the `artist + album + track` name and got the mean of the similarity (using cosaine similarity) due to track features and track metadata feature. and recommend to the user according to `similarity` and `popularity`.
+- We only sliced the most 1000 popular tracks to make the loading speed reasonable
+  - As it takes 20 minutes to iterate over all the 90k tracks
+  - Very accurate algorithm, and it has a dataset of 1k songs
 
-
+## Recommendations
+- We can improve our content-based recommendation algorithm
+- We can recommend the songs relative to the song name, artist instead of the song name only to get more accurate result.
 
 
 ## Deployment
-you can access our app by following this link [stock-price-application-streamlit](https://stock-price-2.herokuapp.com/) or by click [stock-price-application-flask](https://stock-price-flask.herokuapp.com/)
-### Streamlit
-- It is a tool that lets you creating applications for your machine learning model by using simple python code.
-- We write a python code for our app using Streamlit; the app asks the user to enter the following data (**news data**, **Open**, **Close**).
-- The output of our app will be 0 or 1 ; 0 indicates that stock price will decrease while 1 means increasing of stock price.
-- The app runs on local host.
-- To deploy it on the internt we have to deploy it to Heroku.
-
+you can access our app by following this link [Spotify-Recommendation-System-Website](https://recommendify01.herokuapp.com/)
 ### Heroku
-We deploy our Streamlit app to [ Heroku.com](https://www.heroku.com/). In this way, we can share our app on the internet with others. 
-We prepared the needed files to deploy our app sucessfully:
+We deploy our flask app to [ Heroku.com](https://www.heroku.com/). In this way, we can share our app on the internet with others. 
+We prepared the needed files to deploy our app successfully:
 - Procfile: contains run statements for app file and setup.sh.
-- setup.sh: contains setup information.
-- requirements.txt: contains the libraries must be downloaded by Heroku to run app file (stock_price_App_V1.py)  successfully 
-- stock_price_App_V1.py: contains the python code of a Streamlit web app.
-- stock_price_xg.pkl : contains our XGBClassifier model that built by modeling part.
-- X_train2.npy: contains the train data of modeling part that will be used to apply PCA trnsformation to the input data of the app.
-
+- requirements.txt: contains the libraries must be downloaded by Heroku to run app file (app.py)  successfully 
+- model.py: contains the python code of the recommendation system algorithm.
 ### Flask 
-We also create our app   by using flask , then deployed it to Heroku . The files of this part are located into (Flask_deployment) folder. You can access the app by following this link : [stock-price-application-flask](https://stock-price-flask.herokuapp.com/)
+We also create our app by using flask , then deployed it to Heroku . The files of this part are located into (Spotify-Recommendation-System-Website) folder. You can access the app by following this link : [Spotify-Recommendation-System-Website](https://recommendify01.herokuapp.com/)
 
