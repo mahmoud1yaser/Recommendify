@@ -37,8 +37,8 @@ def recommend_me_by_cluster(x1, n=5):
 
 
 df_content = pd.read_csv('data/content_recommend_dataset.csv')
-# We selected the most popular 10000 songs only to make our algo work faster
-df_mini = df_content.sort_values("popularity", ascending=False)[:10000]
+# We selected the most popular 5000 songs only to make our algo work faster
+df_mini = df_content.sort_values("popularity", ascending=False)[:5000]
 
 # Create CountVectorizer object to transform text into vector
 track_vectorizer = CountVectorizer()
