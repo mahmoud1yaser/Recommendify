@@ -143,6 +143,9 @@ sns.lineplot(data=df_modified, x = "num_albums", y = "num_followers")
   - As it takes 20 minutes to iterate over all the 90k tracks
   - Very accurate algorithm, and it has a dataset of 5k songs
 
+## Full project notebooks
+[Project Preparation](https://github.com/mahmoud1yaser/Spotify-Recommendation-System)
+
 ## Recommendations
 - We can improve our content-based recommendation algorithm
 - We can recommend the songs relative to the song name, artist instead of the song name only to get more accurate result.
